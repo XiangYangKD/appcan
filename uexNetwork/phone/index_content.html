@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="tit">
+            网络状态
+        </div>
+        <div class="conbor">
+            <div class="consj">
+                <span>4.获取网络状态：</span>
+                <input class="btn" type="button" value="网络状态"
+                onclick="uexDevice.getInfo('13');">
+                <div class="tcxx" id="connectStatus"></div>
+            </div>
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+            uexDevice.cbGetInfo = function(opCode, dataType, data) {
+                alert('in');
+                var connectStatus = device.connectStatus;
+                if (connectStatus != null && connectStatus.length > 0) {
+                    alert("ConnectStatus:" + connectStatus);
+                    switch(connectStatus) {
+                    case -1:
+                        // 网络不可用
+                        document.getElementById('connectStatus').innerHTML = "网络不可用";
+                        break;
+                    case 0:
+                        // WIF
+                        document.getElementById('connectStatus').innerHTML = "WIFI网络";
+                        break;
+                    case 1:
+                        // 3G
+                        document.getElementById('connectStatus').innerHTML = "3G";
+                    case 2:
+                        // 2G
+                        document.getElementById('connectStatus').innerHTML = "2G";
+                        break;
+                    }
+                }
+            }
+        });
+
+    </script>
+</html>

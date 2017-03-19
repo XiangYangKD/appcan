@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>返回键监听事件-在线打包才有效</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>com.appcan.ide.eclipse.hdt.appcannature</nature>
+	</natures>
+</projectDescription>

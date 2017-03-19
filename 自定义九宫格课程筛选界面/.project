@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>自定义九宫格课程筛选界面</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>com.appcan.ide.eclipse.hdt.appcannature</nature>
+	</natures>
+</projectDescription>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn">
+            获取
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+            uexDevice.cbGetInfo = function(opCode, dataType, data) {
+                var device = eval('(' + data + ')');
+
+                var connectStatus = device.connectStatus;
+                if (connectStatus != null && connectStatus.length > 0) {
+                    alert("ConnectStatus:" + connectStatus);
+                    if (connectStatus == -1) {
+                        alert("网络不可用");
+                    } else if (connectStatus == 0) {
+                        alert("WIFI网络");
+                    } else if (connectStatus == 1) {
+                        alert("3G网络");
+                    } else if (connectStatus == 2) {
+                        alert("2G网络");
+                    } else if (connectStatus == 3) {
+                        alert("4G网络");
+                    }
+                }
+            }
+        });
+
+        appcan.button(".btn", "ani-act", function() {
+            uexDevice.getInfo('13');
+        });
+    </script>
+</html>

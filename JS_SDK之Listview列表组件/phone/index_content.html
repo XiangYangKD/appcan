@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="btn bc-head bc-text-head ub ub-ac ub-pc" onclick="addStart()">
+            在头部添加一条
+        </div>
+        <br />
+        <div id="listview"  class="ubt bc-border sc-bg"></div>
+        <div class="btn bc-head bc-text-head ub ub-ac ub-pc" onclick="addEnd()">
+            加载更多
+        </div>
+        <div id="listview1"  class="ubt bc-border sc-bg"></div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/appcan.listview.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+        })
+        var lv = appcan.listview({
+            selector : "#listview",
+            type : "thickLine",
+            hasIcon : true,
+            hasAngle : true,
+            hasSubTitle : true,
+            multiLine : 1,
+        });
+        lv.set([{
+            title : "临时数据",
+            describe : "测试",
+            icon : "1.png",
+            id : "1"
+        }, {
+            title : "临时数据",
+            describe : "测试",
+            icon : "./css/res/appcan_s.png",
+            id : "2"
+        }, {
+            title : "临时数据",
+            describe : "测试",
+            note : "测试",
+            icon : "2.jpg",
+            id : "2"
+        }])
+        //
+        lv.on("click", function(ele, obj, curEle) {
+            alert(obj.value);
+        })
+        // 加载更多
+        var addElements = [{
+            title : "添加数据1",
+            describe : "测试",
+            icon : "./css/res/appcan_s.png",
+            id : "2"
+        }];
+        // 1.JSON对象；2.加到尾部
+        function addEnd() {
+            lv.add(addElements, 1);
+        }
+
+        // 1.JSON对象；2.加到头部
+        function addStart() {
+            lv.add(addElements, 0);
+        }
+
+        // 已列表组的形式显示
+        var lv1 = appcan.listview({
+            selector : "#listview1",
+            type : "thinLine",
+            hasGroup : true,
+            hasAngle : false
+        });
+        lv1.set([{
+            title : "A",
+            groupId : "A",
+            items : [{
+                title : "上海伯母杀婴案开庭 嫌犯忏悔",
+                icon : "../css/res/appcan_s.png"
+            }, {
+                title : "百万日军投降，武器去向如何？国共并非对半分！",
+                icon : "../css/res/appcan_s.png"
+            }, {
+                title : "港媒：占中不得人心，内讧频繁！！",
+                icon : "../css/res/appcan_s.png"
+            }]
+        }, {
+            title : "B",
+            groupId : "B",
+            items : [{
+                title : "iPhone6 本月将登陆韩国：三星或兵败家门口",
+                icon : "../css/res/appcan_s.png"
+            }, {
+                title : "苹果前雇员为乔帮主洗冤：个性强烈非恶意",
+                icon : "../css/res/appcan_s.png"
+            }]
+        }]);
+    </script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="conbor">
+            <div class="consj">
+                <input type="button" value="打开" onclick="openLoadingView();">
+                <input type="button" value="打开圈圈" onclick="openCircleLoading();">
+                <input type="button" value="关闭" onclick="closeLoadingView();">
+            </div>
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+        })
+        function openLoadingView() {
+            //var jsonstr = '{"x":200, "y":500, "w":240, "h":40, "style":{"styleId":0, "pointNum":4, "pointColor":["#ff4444", "#ffbb33", "#99cc00", "#33b5e5"]}}';
+            var jsonstr = '{"x":200, "y":500, "w":150, "h":40, "style":{"styleId":1, "pointNum":4, "pointColor":["#ffffff"]}}';
+            uexLoadingView.open(jsonstr);
+        }
+        
+        function openCircleLoading() {
+            uexLoadingView.openCircleLoading();
+        }
+
+        function closeLoadingView() {
+            uexLoadingView.close();
+        }
+    </script>
+</html>

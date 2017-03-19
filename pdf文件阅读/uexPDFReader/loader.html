@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <style>
+            .um, .um body {
+                height: 100%;
+                padding: 0px;
+                margin: 0px;
+            }
+            
+            .um-vp {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                -webkit-text-size-adjust: none;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                -webkit-user-select: none;
+				
+				-moz-text-size-adjust: none;
+                -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+                -moz-user-select: none;
+				
+				-o-text-size-adjust: none;
+                -o-tap-highlight-color: rgba(0, 0, 0, 0);
+                -o-user-select: none;
+				
+				-ms-text-size-adjust: none;
+                -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+                -ms-user-select: none;
+            }
+            
+            .um-vp .up {
+                top: 0;
+                left: 0;
+                width: 100%;
+                min-height: 100%;
+                max-height: 100%;
+                position: absolute;
+                border: 0;
+                background-color: #FFFFFF
+            }
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            div {
+                outline: 0 !important;
+                -webkit-text-size-adjust: none;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+				-moz-text-size-adjust: none;
+                -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+				-o-text-size-adjust: none;
+                -o-tap-highlight-color: rgba(0, 0, 0, 0);
+				-ms-text-size-adjust: none;
+                -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+                position: relative;
+            }
+            
+            .ub {
+                display: -webkit-box !important;
+                display: box !important;
+				display:-moz-box !important;
+                position: relative;
+            }
+            
+            .ub-rev {
+                -webkit-box-direction: reverse;
+				-o-box-direction: reverse;
+				-moz-box-direction: reverse;
+				-ms-box-direction: reverse;
+                box-direction: reverse;
+            }
+            
+            .ub-fh {
+                width: 100%;
+            }
+            
+            .ub-fv {
+                height: 100%;
+            }
+            
+            .ub-con {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            
+            .ub-ac {
+                -webkit-box-align: center;
+				-moz-box-align: center;
+				-ms-box-align: center;
+				-o-box-align: center;
+                box-align: center;
+            }
+            
+            .ub-ae {
+                -webkit-box-align: end;
+				-moz-box-align: end;
+				-o-box-align: end;
+				-ms-box-align: end;
+                box-align: end;
+            }
+            
+            .ub-pc {
+                -webkit-box-pack: center;
+				 -moz-box-pack: center;
+				  -o-box-pack: center;
+				   -ms-box-pack: center;
+                box-pack: center;
+            }
+            
+            .ub-pe {
+                -webkit-box-pack: end;
+				 -moz-box-pack: end;
+				  -o-box-pack: end;
+				   -ms-box-pack: end;
+                box-pack: end;
+            }
+            
+            .ub-pj {
+                -webkit-box-pack: justify;
+				 -moz-box-pack: justify;
+				  -ms-box-pack: justify;
+				   -o-box-pack: justify;
+                box-pack: justify;
+            }
+            
+            .ub-ver {
+                -webkit-box-orient: vertical;
+				 -moz-box-orient: vertical;
+				  -ms-box-orient: vertical;
+				   -o-box-orient: vertical;
+                box-orient: vertical;
+            }
+            
+            .ub-img6 {
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+				.morepic {
+	width: .8em;
+	height: .8em;
+	margin: .2em;
+	}
+	.c-month{
+		background-color: #95B3C2;
+	}
+	.c-week{
+		background-color: #D7E2E8;
+	}
+	.t-bold{
+		font-weight: bold;
+	}
+	.t-week{
+		color: #707070;
+	}
+	.t-day{
+		color: #b2b2b2;	
+	}
+	.t-day2{
+		color: #0c4c71;	
+	}
+
+	.t-day-today{
+		color: #fff;
+		background-color: #7A91AF;
+		-webkit-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .4);
+		-moz-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .4);
+		-o-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .4);
+		-ms-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .4);
+		box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .4)
+	}
+	.t-day-act{
+		color: #fff;
+		background-color: #7BBCE6;
+		-webkit-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .4);
+		-moz-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .4);
+		-ms-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .4);
+		-o-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .4);
+		box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .4)
+	}
+	.b-outer{
+		border-color:#B8B8B8;
+	}
+	.b-inner{
+		border-color:#D9D9D9;
+	}
+	.tri-l{
+		border-color: transparent #4B4B4B transparent transparent;
+	    border-style: solid;
+	    border-width:.8em .8em .8em 0;
+	    width: 0;
+	    height: 0;
+	}
+	.tri-l-a .tri-l{
+		border-color: transparent #E7E7E7 transparent transparent;
+	}
+	.tri-r{
+	  	border-color: transparent transparent transparent #4B4B4B;
+	    border-style: solid;
+	    border-width:.8em 0 .8em .8em;
+	    width: 0;
+	    height: 0;
+	}
+	.tri-r-a .tri-r{
+	  	border-color: transparent transparent transparent #E7E7E7;
+	}
+	.t-p{
+	}
+	
+	.ubr-no {
+	border-right: 0;
+	}
+
+	.ulev-3 {
+font-size: 0.9em !important;
+}
+/* 提示框*/
+		.zhy_top{
+			margin-top: 43%;
+		}
+		
+		.zhy_win{
+			position:relative;
+			z-index: 99999;
+			
+		}
+		.zhy_winss{
+			position:absolute !important;
+			z-index: 99999;
+			bottom:0;
+			width:100%;
+			
+		}
+        .zhy_bg {
+            background: #474747;
+			opacity:0.8;
+        }
+        
+        .zhy_border {
+            border-color: #606060;
+        }
+        
+        .zhy_uinn {
+            padding: 1em 0;
+        }
+        
+        .zhy_pading {
+            padding: 0.8em 0;
+        }
+		.zhy_jiazai{
+			background:url(css/images/5-121204193933-51.gif);
+			min-height:2em;
+			min-width:2em;
+			background-position:center;
+			background-repeat:no-repeat;
+			background-size:100% 100%;
+		}
+		.zhy_loader{
+			background:url(css/images/723.GIF);
+			background-repeat:no-repeat;
+			background-position:center;
+		}
+        </style>
+    </head>
+    <body class="um-vp c-wh" >
+        <div id="Container" class="up ub ub-ver uof-x" tabindex="0">
+            <div id="loading" class="ub ub-con ub-img6 ub ub-ac ub-pc " >
+            </div>
+			
+        </div>
+		<div id="loader_calendar" class="ub  ub-ac up" style="background-color:rgba(0,0,0,.5);display:none !important;">
+		<div class="uinn5 ub-f1">
+			<div class="ub ub-ver uba b-outer uc-a">
+				<div class="ub c-month uc-t c-m2">
+					<div class="ub ubr b-gra ub-ac ub-pc" style="width:2em; height:2em" ('tri-l-a')" onclick="cale.loadDateNext(0, '', 1);">
+						<div class="tri-l"></div>
+					</div>
+					<div class="ub-f1 t-wh ub ub-ac ub-pc" id="loader_cale_title">2012年10月</div>
+					<div class="ub ubl b-gra ub-ac ub-pc" style="width:2em; height:2em" ('tri-r-a')" onclick="cale.loadDateNext(1, '', 1);">
+						<div class="tri-r"></div>
+					</div>
+				</div>
+				<div class="ub c-week ulev-3 t-week">
+					<div class="ub-f1 ub ub-ac ub-pc ubr b-gra uinn ulev-1">周日</div>
+					<div class="ub-f1 ub ub-ac ub-pc ubr b-gra uinn ulev-1">周一</div>
+					<div class="ub-f1 ub ub-ac ub-pc ubr b-gra uinn ulev-1">周二</div>
+					<div class="ub-f1 ub ub-ac ub-pc ubr b-gra uinn ulev-1">周三</div>
+					<div class="ub-f1 ub ub-ac ub-pc ubr b-gra uinn ulev-1">周四</div>
+					<div class="ub-f1 ub ub-ac ub-pc ubr b-gra uinn ulev-1">周五</div>
+					<div class="ub-f1 ub ub-ac ub-pc uinn ulev-1">周六</div>
+				</div>
+				<div class="ub ub-ver  c-wh" style="" id="cal1" ="zy_cc(this);">
+				</div>
+				<div class="ub  c-wh ubt b-gra uc-b">
+					<div class="ub-f1  ubr b-gra ">
+						<div  class="btn uinn5  uc-a t-gra tx-c" onclick="cale.getchoose()">确定</div>
+						</div>
+							<div class="ub-f1 ">
+						<div  class="btn  uinn5 uc-a t-gra tx-c" onclick="cale.cancelchoose()">取消</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+        <div id="loader_alert" class="up ub ub-ver" style="background-color:rgba(0,0,0,.5);display:none !important;">
+        	<div class="ub-f1 tx-l t-bla zhy_top" >
+            <div class="ub ub-ver  zhy_win">
+            <div class="uinn uc-t1">
+                <div class="ub ub-ver zhy_bg t-wh uc-a ">
+                    <div class="zhy_uinn uc-t1 tx-c zhy_border ubb">
+                        <div class="uinn" id="loader_alert_1">
+                            提示
+                        </div>
+                        <div class="uinn" id="loader_alert_2">
+                            一旦提交，无法撤销
+                        </div>
+                    </div>
+                    <div class=" " onclick="uexWindow.closeAlert()">
+                        <div class="ub tx-c">
+                            <div class=" ub-f1 zhy_pading"id="loader_alert_3">
+                                确定
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+   		</div>
+		<div id="loader_confirm" class="up ub ub-ver"style="background-color:rgba(0,0,0,.5);display:none !important;">
+	        <div class="ub-f1 tx-l t-bla zhy_top">
+	            <div class="ub ub-ver uinn">
+	            <div class="uinn uc-t1">
+	                <div class="ub ub-ver zhy_bg t-wh uc-a ">
+	                    <div class="zhy_uinn uc-t1 tx-c zhy_border ubb">
+	                        <div class="uinn" id="loader_confirm_1">
+	                            您确定进行账户转换操作么？
+	                        </div>
+	                        <div class="uinn" id="loader_confirm_2">
+	                            一旦提交，无法撤销
+	                        </div>
+	                    </div>
+	                    <div class=" ">
+	                        <div class="ub tx-c" id="loader_confirm_3">
+	                            <div class="ubr zhy_border ub-f1 zhy_pading">
+	                                确定
+	                            </div>
+	                            <div class="ub-f1 zhy_pading">
+	                                取消
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        </div>
+    	</div>
+		<div id="loader_toast" class="up ub ub-ver" style="background-color:rgba(0,0,0,.5);display:none !important;">
+	        <div class="ub-f1 tx-l t-bla zhy_top">
+	            <div class="ub uinn zhy_win">
+				<div class="ub-f1"></div>
+	            <div class="uinn ub-f1 uc-t1">
+	                <div class="ub ub-ver zhy_bg t-wh uc-a " id="loader_toast_1">
+	                	<div class="ub ub-pc ub-ac uinn">
+	                		<div class="zhy_jiazai"></div>
+	                	</div>
+	                    <div class=" uc-t1 tx-c">
+	                        <div class="uinn">
+	                            登录成功！
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+				<div class="ub-f1"></div>
+	        </div>
+	        </div>
+	    </div>
+		<div id="loader_actionsheet" class="up ub ub-ver" style="background-color:rgba(0,0,0,.5);display:none !important;">
+	        <div class="ub-f1 tx-l t-bla">
+	            <div class="ub ub-ver  zhy_winss">
+	            <div class=" uc-t1">
+	                <div class="ub ub-ver zhy_bg t-wh ">
+	                    <div class=" uc-t1 tx-c">
+	                        <div class="uinn" id="loader_actionsheet_1">
+	                            提示
+	                        </div>
+	                        <div class="uinn" id="loader_actionsheet_2">
+	                            
+	                        </div>
+	                    </div>
+	                    <div class=" ">
+	                        <div class="ub tx-c" onclick="uexWindow._cbActionSheet()">
+	                            <div class=" ub-f1 zhy_pading" id="loader_actionsheet_3">
+	                                取消
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        </div>
+    </div>
+
+		<iframe  class="uhide" id="hideFrame" name="hideFrame">
+        </iframe>
+    </body>
+    <script>
+		var asyncLoad = function(res, cb){
+            var count = 0;
+            function ready(){
+                count++;
+               // console.log("count = ", count);
+			//	console.log(count == res.length);
+                if (count == res.length) 
+                    cb();
+            }
+            function loadres(url){
+                if (url.indexOf(".js") > 0) {					
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+				//	alert("script="+script);
+					if(navigator.userAgent.indexOf("IE") > 0){
+						script.onreadystatechange = function(){
+						//	alert("b")
+							//console.log("script.onload");
+	                        ready();
+	                    }
+					}else{
+						script.onload = function(){
+							//console.log("script.onload");
+	                        ready();
+	                    }
+					}
+                    
+                    script.src = url;
+					//alert(document.getElementsByTagName("head")[0].innerHTML)
+                    document.getElementsByTagName("head")[0].appendChild(script);
+					
+                }
+                else if (url.indexOf(".css") > 0) {
+                    var x = document.createElement("LINK");
+                    x.rel = "stylesheet";
+                    x.href = url;
+					//x.onload = function(){
+					//	alert("css")
+						ready();
+				//	}
+                    document.getElementsByTagName("head")[0].appendChild(x);
+                }
+            }
+            for (var i = 0; i < res.length; i++) {
+                loadres(res[i])
+            }
+        }
+		var cale = '';
+		if(navigator.userAgent.indexOf("MSIE") > 0){
+			window.onload = function(){
+				
+				asyncLoad(["css/appcan.css", "js/appcan.js"], function(){
+					//alert("asyncLoad----");
+					setTimeout(function(){
+						//alert("setTimeout");
+						//window.location.href = "index.html"
+					//	if (navigator.userAgent.indexOf("IE") > 0) {
+					//		alert(1)
+					//		window.location.href = "ieIndex.html"
+					//	}else{
+							//uexWindow.open("index", 0, "index.html", 2);
+							var pagetag=window.location.href.split('=')[1];
+							var pagetag2 = window.location.href.split('=')[0].split('?')[1];
+							if(null !=pagetag2 )pagetag2=pagetag2.split('=')[0];
+							if(pagetag=='weixin'){
+								//uexWindow.open("weixinmashangqiang", 0, "weixinmashangqiang.html", 2);
+								share2();
+							}else if(pagetag2=="sign"){
+							    var href1 = decodeURI(window.location.href);
+								var str = href1.split('=')[1];
+								var lia_policyno = str.substring(0,17);
+								var sign = str.substring(17,str.length);
+								setLocVal('sign132',sign);
+								setLocVal('lia_policyno121',lia_policyno);
+								uexWindow.open("xiechengduanxinh5", 0, "xiechengduanxinh5.html", 2);
+						}else{
+											
+							var winlochref = window.location.href;							
+							if( winlochref.indexOf("loader.html?")>-1 ){
+								winlochref = winlochref.replace("loader.html?","#");
+							}
+										
+							var pagehref=winlochref.split('#')[1];														
+							if(winlochref.indexOf("#") > -1){
+								
+								if(pagehref != ''){
+									
+									if (pagehref.indexOf("?") > -1) {
+										var pagehref0=pagehref.split('?')[0]; 
+									} else {
+										var pagehref0=pagehref.split('&')[0]; 
+									}
+									
+									if(pagehref0=="vehicle"){ 
+										if(pagehref.indexOf("?") > -1 ){							
+											var pagehref = pagehref.split('?')[1]; //都是参数
+											var hrefstr = new Array();
+											hrefstr = pagehref.split("&");	
+											for(var i=0;i<hrefstr.length;i++){
+												var hrefnn= hrefstr[i].split("=");
+												if(hrefnn[0] == "proId"){
+													var vehicleDocId = hrefnn[1];
+												}else if(hrefnn[0] == "proName" ){
+													//var ltrname = hrefnn[1];
+													var ltrname = decodeURIComponent(hrefnn[1]);
+												}else if(hrefnn[0] == "proType" ){
+													var ltrId = hrefnn[1];
+												}else if(hrefnn[0] == "proSerial" ){
+													var comboCode = hrefnn[1];
+												}
+											}										
+										} else {
+											var vehicleDocId = pagehref.split('&')[1].split('=')[1];
+											var ltrname = decodeURIComponent(pagehref.split('&')[2].split('=')[1]);
+											var ltrId = pagehref.split('&')[3].split('=')[1];
+											var comboCode = pagehref.split('&')[4].split('=')[1];
+										}
+										setLocVal("ltrname",ltrname);
+										setLocVal("vehicleDocId",vehicleDocId);
+										setLocVal("ltrId",ltrId);
+										setLocVal("combocodeFlag",comboCode);
+											
+										uexWindow.open(pagehref0, 0, pagehref0+".html", 2, '', '', '', '', 1);
+									}else {
+										if(pagehref.indexOf("?") > -1 ){
+											var pagehref=pagehref.split('?')[0];
+										}										
+										if( pagehref.indexOf("&") > -1 ){
+											pagehref=pagehref.split('&')[0]
+										}																		
+										uexWindow.open(pagehref, 0, pagehref+".html", 2, '', '', '', '', 1);
+									}
+									
+								} else {
+									uexWindow.open("index", 0, "index.html", 2);
+								}						
+							} else {
+								uexWindow.open("index", 0, "index.html", 2);
+							}
+								
+						}
+					//	}
+						
+					}, 1000);
+				})
+			}
+		}else{
+			window.onload = function(){
+				asyncLoad(["css/appcan.css", "js/appcan.js"], function(){
+                    
+					setTimeout(function(){
+                            
+							var winlochref = window.location.href;
+							
+							if(winlochref.indexOf("loader.html?")>-1 ){
+								winlochref = winlochref.replace("loader.html?","#");
+							}
+                            
+							var pagehref = winlochref.split('#')[1];						
+							if(winlochref.indexOf("#") > -1){
+                                
+								if(pagehref != ''){
+									
+									if(pagehref.indexOf("?") > -1) {
+										var pagehref0=pagehref.split('?')[0]; 
+									}else{
+										var pagehref0=pagehref.split('&')[0]; 
+									}
+									
+									if(pagehref0=="vehicle"){
+										if(pagehref.indexOf("?") > -1 ){						
+											var pagehref = pagehref.split('?')[1]; //都是参数
+											var hrefstr = new Array();
+											hrefstr = pagehref.split("&");	
+											for(var i=0; i< hrefstr.length;i++){
+												var hrefnn= hrefstr[i].split("=");
+												if(hrefnn[0] == "proId"){
+													var vehicleDocId = hrefnn[1];
+												}else if(hrefnn[0] == "proName" ){
+													//var ltrname = hrefnn[1];
+													var ltrname = decodeURIComponent(hrefnn[1]);
+												}else if(hrefnn[0] == "proType" ){
+													var ltrId = hrefnn[1];
+												}else if(hrefnn[0] == "proSerial" ){
+													var comboCode = hrefnn[1];
+												}
+											}
+                                        
+										} else {
+											var vehicleDocId = pagehref.split('&')[1].split('=')[1];
+											var ltrname = decodeURIComponent(pagehref.split('&')[2].split('=')[1]);
+											var ltrId = pagehref.split('&')[3].split('=')[1];
+											var comboCode = pagehref.split('&')[4].split('=')[1];
+										}
+										setLocVal("ltrname",ltrname);
+										setLocVal("vehicleDocId",vehicleDocId);
+										setLocVal("ltrId",ltrId);
+										setLocVal("combocodeFlag",comboCode);
+                                        
+										uexWindow.open(pagehref0, 0, pagehref0+".html", 2, '', '', '', '', 1);
+									}else {
+										if(pagehref.indexOf("?") > -1 ){
+											var pagehref=pagehref.split('?')[0];
+										}										
+										if( pagehref.indexOf("&") > -1 ){
+											pagehref=pagehref.split('&')[0]
+										}
+										uexWindow.open(pagehref, 0, pagehref+".html", 2, '', '', '', '', 1);
+									}
+									
+								} else {
+									uexWindow.open("index", 0, "index.html", 2);
+								}					
+							} else {
+								uexWindow.open("index", 0, "index.html", 2);
+							}
+                            
+					}, 500);
+				})
+				
+			}
+		}
+    </script>
+</html>

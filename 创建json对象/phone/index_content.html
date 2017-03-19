@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        json对象、数组创建
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+            var cid = '1';
+
+            var cname = 'IT';
+            var name = JSON.stringify(cname);
+
+            var cpid = '0';
+
+            // 开始创建json对象
+            var jsonObject = "{cid:" + cid + ",cname:" + name + ",cpid:" + cpid + "}";
+
+            var json1 = eval("(" + jsonObject + ")");
+
+            alert(json1.cid);
+            alert(json1.cname);
+            alert(json1.cpid);
+            
+            // 开始创建json数组
+            var jsonArray = "[{cid:" + cid + ",cname:" + name + ",cpid:" + cpid + "}]";
+
+            var json2 = eval("(" + jsonArray + ")");
+
+            $.each(json2, function(i, n) {
+                alert(n.cid);
+            });
+
+        })
+
+    </script>
+</html>

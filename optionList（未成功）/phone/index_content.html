@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div id="listview" ></div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+            var updateData = [{
+                content : "这是一个带操作选项的optionList的demo",
+                height : "5em",
+                hideOption : {
+                    content : ["操作1", "操作2"],
+                    style : {
+                        fontSize : "2em",
+                        background : "red"
+                    },
+                    onClick : function(e, index, length) {
+                        console.log(e);
+                        console.log(e.currentTarget);
+                        console.log(e.target);
+                        console.log(index);
+                        console.log(length);
+                    }
+                },
+                onLongTap : function(e, index) {
+                    console.log(e);
+                    console.log(index);
+                }
+            }, {
+                content : '这是一个带操作选项的optionList的demo',
+                height : "3em",
+                hideOption : {
+                    content : "11111111222222",
+                    style : {
+                        fontSize : "1.5em",
+                        background : "red"
+                    },
+                    onClick : function(e, index, length) {
+                        alert(2);
+                    }
+                }
+            }];
+            var lv1 = appcan.optionList({
+                selector : "#listview",
+                type : "hiddenLine",
+                id : 1,
+                duration : "300ms",
+                multiShow : false
+            });
+            lv1.set(updateData);
+            lv1.on("click", function(e) {
+                alert(e);
+            })
+        })
+    </script>
+</html>

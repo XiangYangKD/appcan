@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn">
+            获取uid
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+        })
+
+        appcan.button(".btn", "ani-act", function() {
+            var url = '{"user":{"uid":"33","nick_name":"zqy","uname":"zqy","sex":"\u5973","birthday":"1993-02-22","email":"23572357@qq.com","work_num":"201200403041","section":"\u65e0","position":"\u9171\u6cb9\u90e8","position_sort":"\u65e0","position_level":"\u65e0","head_protrait":"550e6d86f3a74.png","status":"0","reg_time":"1423650751","last_login_time":"1444660954","integral":"339","interview":null,"role_style":"4"},"token":"704c7368f0249e4ede0f1a2f08fb89403aa65177"}';
+
+            var pa = {
+                "mark" : "nimei",
+                reload : 1
+            };
+            
+            var paStr = JSON.stringify(pa);            
+            
+            // JSON解析
+            var str = JSON.parse(paStr);
+            
+            alert(str.mark);
+            
+          //  {"response":{"data":[{"address":"南京市游乐园","province":"江苏","district":"玄武区","city":"南京"}]},"status":"ok"}
+
+        })
+    </script>
+</html>

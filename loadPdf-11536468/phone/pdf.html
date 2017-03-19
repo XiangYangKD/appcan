@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh bc-text-head ub bc-head">
+                <div class="nav-btn" id="nav-left"></div>
+                <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">PDF阅读</h1>
+                <div class="nav-btn nav-bt" id="nav-right"></div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+
+            </div>
+            <!--content结束-->
+
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            var titHeight = $('#header').offset().height;
+            // appcan.frame.open("content", "pdf_content.html", 0, titHeight);
+            // appcan.window.preOpenStart();
+            appcan.window.openPopover({
+                name : 'pdf_content',
+                dataType : 0,
+                // url : 'http://www.lzovm.com:8016/ovm/pdf/',
+                url : 'http://www.lzovm.com:8016/ovm/pdf/124.html',
+                // url : 'pdf_content.html',
+                // url : 'http://www.jq22.com/yanshi782',
+                // url : 'http://www.baidu.com/',
+                top : titHeight,
+                aniId : 2,
+                type : 512,
+                animDuration : 0,
+            });
+            // appcan.window.preOpenFinish();
+            window.onorientationchange = window.onresize = function() {
+                appcan.frame.resize("pdf_content", 0, titHeight);
+            }
+        });
+        appcan.button(".nav-btn", "btn-act", function() {
+            appcan.window.close(-1);
+        })
+
+    </script>
+</html>

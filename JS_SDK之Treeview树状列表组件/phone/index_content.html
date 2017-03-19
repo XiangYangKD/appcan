@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <h3> 依赖：
+        <br/>
+        appcan.js
+        <br/>
+        appcan.control.js
+        <br/>
+        appcan.listview.js
+        <br/>
+        appcan.treeview.js
+        <br/>
+        appcan.control.css
+        <br/>
+        </h3>
+        
+        <div class="sc-bg" id="treeview"></div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/appcan.listview.js"></script>
+        <script src="js/appcan.treeview.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+        })
+        var tv = appcan.treeview({
+            selector : "#treeview",
+            defaultOpen : 1//默认打开第几项，必须包含数据
+        });
+        tv.set([{
+            header : "消息框(dialog)",
+            name : "control",
+            url : "UIcontrol/dialog.html"
+        }, {
+            header : "图片轮播(slider)",
+            name : "control",
+            url : "UIcontrol/slider.html"
+        }, {
+            header : "列表(list)",
+            content : [{
+                title : '单行列表',
+                name : "listview",
+                url : "UIcontrol/listview.html"
+            }, {
+                title : '单行右侧带箭头',
+                name : "listview",
+                url : "UIcontrol/listview.html"
+            }, {
+                title : '单行带描述右侧带箭头',
+                name : "listview",
+                url : "UIcontrol/listview.html"
+            }, {
+                title : '单行复选',
+                name : "listview",
+                url : "UIcontrol/listview.html"
+            }, {
+                title : '单行单选',
+                name : "listview",
+                url : "UIcontrol/listview.html"
+            }, {
+                title : '单行全包含',
+                name : "listview",
+                url : "UIcontrol/listview.html"
+            }, {
+                title : '单行带控件',
+                name : "listview",
+                url : "UIcontrol/listview.html"
+            }, {
+                title : '多行列表',
+                name : "listview",
+                url : "UIcontrol/listview.html"
+            }, {
+                title : '文字换行缩略',
+                name : "listview",
+                url : "UIcontrol/listview.html"
+            }]
+        }]);
+        tv.on('listviewClick', function(ele, data, obj) {
+        });
+        tv.on('click', function(ele, obj, subobj) {
+        });
+    </script>
+</html>

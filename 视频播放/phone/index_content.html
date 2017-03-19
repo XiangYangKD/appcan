@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <video class="ub ub-f1" controls="controls">
+            <source src="movie.mp4" type="video/mp4" />
+            <source src="movie.ogg" type="video/ogg" />
+            <source src="movie.webm" type="video/webm" />
+            <object data="http://192.168.0.2/demo2.mp4">
+                <embed src="movie.swf" />
+            </object>
+        </video>
+
+        <input class="btn" type="button" value="选择视频文件"
+        onclick="uexFileMgr.explorer('');">
+        <span>选择好的视频文件为：</span>
+        <div class="tcxx" id="file"></div>
+        <input id="hidText" type="hidden" value="">
+        <span>1.打开视频播放界面</span>
+        <input class="btn" type="button" value="打开视频播放界面"
+        onclick="uexVideo.open(http://127.0.0.1/demo2.mp4);">
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+
+            // 1.无效，2.数据类型3.视频播放路径
+            uexVideo.cbRecord = function(opCode, dataType, data) {
+                alert("recordCallback:" + dataType + "," + data);
+                switch(dataType) {
+                case cText:
+                    // 文本数据
+                    document.getElementById('videorecord').innerHTML = data;
+                    document.getElementById('hidPath').value = data;
+                    break;
+                case cJson:
+                    // json数据
+                    alert("uex.cJSON");
+                    break;
+                case cInt:
+                    //整形数据
+                    alert("uex.cInt");
+                    break;
+                default:
+                    alert("Error");
+                }
+            };
+
+            uexFileMgr.cbExplorer = function(opCode, dataType, data) {
+                document.getElementById('file').innerHTML = data;
+                document.getElementById('hidText').value = data;
+            }
+            uexWidgetOne.onError = function(opCode, errorCode, errorDesc) {
+                alert(errorCode + ":" + errorDesc);
+            }
+        })
+
+    </script>
+</html>

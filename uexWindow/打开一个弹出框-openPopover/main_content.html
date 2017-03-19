@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        I am the pop view.
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            // 获取网页传递过来的值
+            uexWindow.getUrlQuery();
+
+            uexWindow.cbGetUrlQuery = cbGetUrlQuerys;
+        });
+
+        // id：操作ID，此方法中不起作用
+        // dataType：数据类型，0表示text，1表示接送，2表示int型
+        // data：数据
+        function cbGetUrlQuerys(opId, dataType, data) {
+            var str = JSON.stringify(data);
+            
+            var json = JSON.parse(str);
+                
+            alert(json.width + "----" + json.height);
+        }
+
+    </script>
+</html>

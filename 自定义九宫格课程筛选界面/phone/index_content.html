@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <style>
+        .filter_color {
+            background-color: #BABABA;
+        }
+        .ub-f1-jelly {
+            width: 25%;
+        }
+    </style>
+    <body class="um-vp bc-bg" ontouchstart>
+        <!-- <div class="ub ub-ver">
+        <div class="ub-f1 ub umar-a" id="courseFilterIds0">
+        <div class = "ub-f1 ub ub-ver ub-pc ub-ac">
+        <div class="btn ub ub-ac ub-pc uc-a btnFilter" id="btnFilter0">
+        舅舅
+        </div>
+        </div>
+        <div class = "ub-f1 ub ub-ver ub-pc ub-ac">
+        <div class="btn ub ub-ac ub-pc uc-a btnFilter" id="btnFilter1">
+        舅舅
+        </div>
+        </div>
+        </div>
+        </div> -->
+        <!-- <div class="ub ub-ver">
+        <div class="ub-f1 ub umar-a" id="courseFilterIds0">
+        <div class = "ub-f1 ub ub-ver ub-pc ub-ac">
+        <div class="btn ub ub-ac ub-pc uc-a btnFilter" id="btnFilter0">
+        舅舅
+        </div>
+        </div>
+        </div>
+        </div> -->
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        var mPound = "#";
+        var mCurrentCourseFilter = mPound + "btnFilter0";
+        var mBtnTextColorClass = "bc-text-head";
+        var mBtnBgColorClass = "bc-btn";
+
+        var mFilterNumber = 0;
+        var mFilterId = "btnFilter" + mFilterNumber;
+        var mLineNumberForFilter = 0;
+        var mCourseFilterIds = "courseFilterIds";
+        var mHeadNumber = 0;
+        var mAppendHeadNumberId = mCourseFilterIds + mHeadNumber;
+
+        var mInitCourseFilter = '<div class="ub ub-ver" id="layout"><div class="ub-f1 ub umar-a" id="' + mAppendHeadNumberId + '"><div class = "ub-f1-jelly ub ub-ver ub-pc ub-ac"><div class="btn ub ub-ac ub-pc uc-a btnFilter filter_color" id="' + "btnFilter0" + '">全部</div></div></div></div>';
+        appcan.ready(function() {
+            appcan.initBounce();
+
+            // 在Body加载钱预置内容
+            $('.um-vp').append(mInitCourseFilter);
+
+            // 循环添加课程类别
+            var courcesType = new Array();
+            for (var i = 0; i < 12; i++) {
+                courcesType[i] = "课笨";
+            }
+            courcesType[12] = "IT";
+
+            for (var i = 0; i < courcesType.length; i++) {
+                if (mLineNumberForFilter == 3) {
+                    mLineNumberForFilter = -1;
+                    mHeadNumber += 1;
+                    mAppendHeadNumberId = mCourseFilterIds + mHeadNumber;
+
+                    var appendHead = '<div class="ub-f1 ub umar-a" id="' + mAppendHeadNumberId + '"></div>';
+                    $('#layout').append(appendHead);
+                }
+
+                if (courcesType[i] == 'IT') {
+                    courcesType[i] = "&nbsp;&nbsp;" + "IT" + "&nbsp;&nbsp;";
+                }
+                var appendFilter = '<div class = "ub-f1-jelly ub ub-ver ub-pc ub-ac"><div class="btn ub ub-ac ub-pc uc-a btnFilter filter_color"  id="' + "btnFilter" + (i + 1) + '">' + courcesType[i] + '</div></div>';
+                $(mPound + mAppendHeadNumberId).append(appendFilter);
+                mLineNumberForFilter += 1;
+            }
+
+            appcan.button(".btnFilter", "ani-act", function() {
+                var newCourseFilter = mPound + $(this).attr("id");
+                alert(newCourseFilter);
+                if (newCourseFilter != mCurrentCourseFilter) {
+                    // 移除当前课程类别的颜色
+                    $(mCurrentCourseFilter).removeClass(mBtnBgColorClass);
+                    $(mCurrentCourseFilter).removeClass(mBtnTextColorClass);
+                    $(mCurrentCourseFilter).addClass("filter_color");
+
+                    // 增加新的属性
+                    $(this).removeClass("filter_color");
+                    $(this).addClass(mBtnBgColorClass);
+                    $(this).addClass(mBtnTextColorClass);
+
+                    // 当前筛选的课程类别为
+                    mCurrentCourseFilter = newCourseFilter;
+                }
+                // 关闭当前窗口
+            });
+
+            $(mCurrentCourseFilter).removeClass("filter_color");
+            $(mCurrentCourseFilter).addClass(mBtnTextColorClass);
+            $(mCurrentCourseFilter).addClass(mBtnBgColorClass);
+        });
+    </script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <style>
+            .my_box_color_blue {
+                background-color: #05B0DE;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <h3>按钮</h3>
+        <div class='btn ub ub-ac ub-pc uc-a bc-head bc-text-head'>
+            确定
+        </div>
+        <h3>按钮被摁下和未被摁下</h3>
+        <div class="btn ub ub-ac ub-pc bc-text-head my_box_color_blue uc-a us-i">
+            内阴影颜色为黑色
+        </div>
+        <br />
+        <div class="btn ub ub-ac ub-pc bc-text-head my_box_color_blue uc-a us">
+            外阴影颜色为灰白色
+        </div>
+        <h3>自适应内容大小的按钮（当前方法不可靠），注意不能使用盒子模型，否则效果可能不是自己想要的</h3>
+        <div class="ub ub-ac ub-pc">
+            <div class="btn uinl uba uc-a bc-text-head my_box_color_blue umh" style="padding-top: 1.2em;">
+                未使用盒子模型的按钮
+            </div>
+        </div>
+        <h3>ut-s：超出部分隐藏不换行</h3>
+        <p class="ut-s">
+            我是是不是你最疼爱的人我是是不是你最疼爱的人我是是不是你最疼爱的人我是是不是你最疼爱的人
+        </p>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn">
+            无图片按钮
+        </div>
+
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+
+            setTimeout(function() {
+                alert('dd');
+            }, 1000);
+        });
+
+        function myAlert() {
+            alert("jj");
+        }
+
+
+        appcan.button(".btn", "ani-act", function() {
+            setTimeout("myAlert()", 1000);
+        })
+    </script>
+</html>

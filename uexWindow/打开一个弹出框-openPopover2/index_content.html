@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" id="mbody" ontouchstart>
+        <br />
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn">
+            打开一个弹出框，如果存在则打开，否则就创建-真机上测试
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        var width = 0;
+        var height = 0;
+        
+        appcan.ready(function() {
+            appcan.initBounce();
+
+            width = $('#mbody').offset().height;
+            height = $('#mbody').offset().width;
+            
+            // 将当前的浮动窗口设置到最下层
+            appcan.window.sendPopoverToBack("content");
+            
+            // alert(width +"," + height);
+        });
+
+        appcan.button(".btn", "ani-act", function() {
+            // 名称
+            appcan.window.openPopover({
+                name : 'main_content',
+                dataType : 0,
+                url : "main_content.html",
+                top : 0,
+                left : 0,
+                bottomMargin : 0,
+                "width" : width,
+                "height" : height,
+            });
+        });
+
+    </script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        说明：当前方法可以实现窗口与自身的通讯、窗口与窗口之间通讯、主窗口与浮动窗口之间通讯，只需要指定要通讯的窗口名称即可。
+        <br />
+        理解：可以理解为在windName窗口中执行当前脚本
+        <br />
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn1">
+            与当前窗口通讯，执行当前浮动窗口对应主窗口的方法
+        </div>
+        <br />
+        下面这个要实现的是在main.html窗口中实现保存一个键为appcan值为Hello Appcan的内容，然后该处获取到并显示
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn2">
+            与main.html普通窗口实现通讯(未实现)
+        </div>
+        <br />
+        因为当前的窗口index_content.html就是一个浮动窗口，所以我们可以指定与当前浮动窗口进行通信。
+        <br />
+        注意：1.浮动窗口的名字在index_html中appcan.frame.open(...)方法的第一个参数；
+        2.要切换到index.html页面再点击当前按钮，否则看不到效果。
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn3">
+            与浮动窗口通信（在浮动窗口执行js脚本）
+        </div>
+
+        <br />
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn4">
+            打开main.html
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+
+            // 创建一个浮动窗口
+            // uexWindow.openPopover("popName",0,'main_content.html',"",400,0,'','','','',0,100);
+        })
+
+        appcan.button("#btn1", "ani-act", function() {
+            // 在当前浮动窗口的main部分执行
+            // uexWindow.evaluateScript("", 0, "alert('呵呵')");          // 执行主窗口index.html中的方法
+
+            // 执行当前浮动窗口对应的主窗口的方法
+            appcan.window.evaluateScript({
+                name : '',
+                scriptContent : "show_index();",
+            });
+        });
+
+        appcan.button("#btn2", "ani-act", function() {
+            // 在main.html窗口执行当前脚本
+            // 此处root表示根
+            uexWindow.open('main', '0', 'main.html', 1, '', '', 0, 500);
+
+            //uexWindow.evaluatePopoverScript("main", "main_content",  "alert('multipop')");
+            appcan.frame.evaluateScript({
+                name : 'main',
+                popName : 'main_content',
+                scriptContent : "show()"
+            });
+            // 获取数据
+            // String ac = appcan.locStorage.getVal("ac");
+            // alert("得到的数据为" + ac);
+            alert("hehe");
+        });
+
+        function mm() {
+            alert('meme');
+        }
+
+
+        appcan.button("#btn3", "ani-act", function() {
+            uexWindow.evaluatePopoverScript("", "content", "alert('执行去吧！！');");
+        });
+        appcan.button("#btn4", "ani-act", function() {
+            uexWindow.open('main', '0', 'main.html', 1, '', '', 0, 500);
+        })
+    </script>
+</html>

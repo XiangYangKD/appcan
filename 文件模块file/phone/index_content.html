@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        1.创建一个新文件
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn1">
+            wgt://a.txt
+        </div>
+        2.创建一个新文件，其中wgtRes和pdf文件夹都不存在的情况下--证明能正确创建-哈哈爽爆了
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn2">
+            wgt://wgtRes//pdf//a.txt
+        </div>
+        3.创建一个加密文件--发现并无法进行加密
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn3">
+            wgt://a.txt
+        </div>
+        4.删除一个加密文件--可以删除加密的文件
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn4">
+            wgt://wgtRes//pdf//a.txt
+        </div>
+        5.删除一个普通文件--可以删除加密的文件
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn5">
+            wgt://a.txt
+        </div>
+        6.把内容附加到指定的文件路径-普通文件
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn6">
+            wgt://a.txt
+        </div>
+        7.把内容附加到指定的文件路径-加密文件 ---
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn7">
+            wgt://a.txt
+        </div>
+        8.判断给定的路径是否存在文件--正确
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn8">
+            wgt://a.txt
+        </div>
+        9.获取文件的相关属性---无论文件是否存在都会获取得到
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn9">
+            wgt://a.txt
+        </div>
+        10.获取给出路径的绝对路径---如果我给的是文件路径，那么永远都会得到这个文件的路径
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn10">
+            wgt://a.txt
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+        });
+
+        appcan.button("#btn1", "ani-act", function() {
+            //创建一个新文件
+            appcan.file.create({
+                filePath : 'wgt://a.txt',
+                callback : function(err, data, dataType, optId) {
+                    if (err) {
+                        //创建文件出错了
+                        return;
+                    }
+                    if (data == 0) {
+                        //创建成功
+                        alert("创建成功~");
+                    } else {
+                        //创建失败
+                        alert("创建失败~");
+                    }
+                }
+            });
+        });
+
+        appcan.button("#btn2", "ani-act", function() {
+            //创建一个新文件
+            appcan.file.create({
+                filePath : 'wgt://wgtRes//pdf//a.txt',
+                callback : function(err, data, dataType, optId) {
+                    if (err) {
+                        //创建文件出错了
+                        alert('出错了~，' + err);
+                        return;
+                    }
+                    if (data == 0) {
+                        //创建成功
+                        alert("创建成功~");
+                    } else {
+                        //创建失败
+                        alert("创建失败~");
+                    }
+                }
+            });
+        });
+
+        appcan.button("#btn3", "ani-act", function() {
+            //创建一个新文件
+            appcan.file.createSecure({
+                filePath : 'wgt://a.txt',
+                key : 'password',
+                callback : function(err, data, dataType, optId) {
+                    if (err) {
+                        //创建文件出错了
+                        alert('创建失败');
+                        return;
+                    }
+                    if (data == 0) {
+                        //创建成功
+                        alert("创建成功~");
+                    } else {
+                        //创建失败
+                        alert("创建失败~");
+                    }
+                }
+            });
+        });
+
+        appcan.button("#btn4", "ani-act", function() {
+            //删除一个指定的文件,删除a.txt文件
+            appcan.file.remove({
+                filePath : 'wgt://wgtRes//pdf//a.pdf.ovm',
+                callback : function(err, data, dataType, optId) {
+                    if (err) {
+                        //删除文件错误
+                        alert('删除失败');
+                        return;
+                    }
+                    if (data == 0) {
+                        //删除文件成功
+                        alert("删除成功~");
+                    } else {
+                        //删除文件失败
+                        alert("删除失败~");
+                    }
+                }
+            });
+        });
+
+        appcan.button("#btn5", "ani-act", function() {
+            //删除一个指定的文件,删除a.txt文件
+            appcan.file.remove({
+                filePath : 'wgt://a.txt',
+                callback : function(err, data, dataType, optId) {
+                    if (err) {
+                        //删除文件错误
+                        alert('删除失败');
+                        return;
+                    }
+                    if (data == 0) {
+                        //删除文件成功
+                        alert("删除成功~");
+                    } else {
+                        //删除文件失败
+                        alert("删除失败~");
+                    }
+                }
+            });
+        });
+
+        appcan.button("#btn6", "ani-act", function() {
+            //附加新内容到现有内容上
+            appcan.file.append({
+                filePath : 'wgt://a.txt',
+                content : 'hello world',
+                callback : function(err) {
+                    if (err) {
+                        //附加内容出错了
+                        alert('附加错误');
+                        return;
+                    }
+                    //附加内容成功
+                    alert('附加成功');
+                }
+            });
+        });
+
+        appcan.button("#btn7", "ani-act", function() {
+            //附加新内容到现有内容上
+            appcan.file.append({
+                filePath : 'wgt://a.txt',
+                content : 'hello world',
+                callback : function(err) {
+                    if (err) {
+                        //附加内容出错了
+                        alert('附加错误');
+                        return;
+                    }
+                    //附加内容成功
+                    alert('附加成功');
+                }
+            });
+        });
+
+        appcan.button("#btn8", "ani-act", function() {
+            //判断文件a.txt是否存在
+            appcan.file.exists({
+                filePath : 'wgt://a.txt',
+                callback : function(err, data, dataType, optId) {
+                    if (err) {
+                        //判断文件文件出错了
+                        alert('判断文件出错');
+                        return;
+                    }
+                    if (data == 1) {
+                        //文件存在
+                        alert('文件存在~');
+                    } else {
+                        //文件不存在
+                        alert('文件不存在~');
+                    }
+                }
+            });
+        });
+
+        appcan.button("#btn9", "ani-act", function() {
+            //获取文件信息
+            appcan.file.stat({
+                filePath : 'wgt://a.txt',
+                callback : function(err, data, dataType, optId) {
+                    if (err) {
+                        //获取文件信息出错了
+                        alert('获取文件信息出错了');
+                        return;
+                    }
+                    if (data.isFile) {
+                        //该路径是文件
+                        alert('该路径是文件');
+                    }
+                    if (data.isDirectory) {
+                        //该路径是一个文件夹
+                        alert('该路径是一个文件夹');
+                    }
+                }
+            });
+        });
+
+        appcan.button("#btn10", "ani-act", function() {
+            //获取给定路径的真实路径
+            appcan.file.getRealPath({
+                filePath : 'wgt://a.txt',
+                callback : function(err, data, dataType, optId) {
+                    // 
+                    alert(err);
+                    // 这个是绝对路径
+                    alert(data);
+                    // 这个是状态
+                    alert(dataType);
+                    /*
+                    if (err) {
+                        alert('获取失败');
+                        return;
+                    }
+                    if (data == 1) {
+                        //该路径是文件
+                        alert(data);
+                    } else {
+                        //该路径是一个文件夹
+                        alert('获取失败');
+                    }
+                    */
+                }
+            });
+
+        });
+
+        appcan.button(".btn", "ani-act", function() {
+
+        });
+
+    </script>
+</html>

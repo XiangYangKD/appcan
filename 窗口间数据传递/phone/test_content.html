@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="test_content/css/main.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="ub ub-ver uinn-a1">
+            <div class="ub ub-ver">
+                <form method="get" action="http://www.appcan.cn">
+                    <div class="umar-a uba bc-border c-wh">
+                        <div class="ub ub-ac ubb umh5 bc-border ">
+                            <div class=" uinput ub ub-f1">
+                                <div class="uinn fa fa-user sc-text"></div>
+                                <input placeholder="手机/邮箱/用户名" type="text" class="ub-f1">
+                            </div>
+                        </div>
+                        <div class="ub ub-ac umh5 bc-border ">
+                            <div class=" uinput ub ub-f1">
+                                <div class="uinn fa fa-lock sc-text"></div>
+                                <input placeholder="密码" type="password" class="umw4 ub-f1">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit"class="uinvisible"></button>
+                </form>
+                <div class="ub " id="listview">
+                    <ul class="ub">
+                        <li class=" ub  bc-text ub-ac lis" data-index="0">
+                            <div class="checkbox umar-r">
+                                <input type="checkbox" class="uabs ub-con">
+                            </div>
+                            <div class="lv_title ub-f1 marg-l ub ub-ver ut-m line1">
+                                记住密码
+                            </div>
+                        </li>
+                        <li class=" ub  bc-text ub-ac lis" data-index="1">
+                            <div class="checkbox umar-r">
+                                <input type="checkbox" class="uabs ub-con">
+                            </div>
+                            <div class="lv_title ub-f1 marg-l ub ub-ver ut-m line1">
+                                自动登录
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/appcan.listview.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+            
+            uexWindow.getUrlQuery();
+
+            uexWindow.cbGetUrlQuery = function(opId, dataType, data) {
+                alert("test_content:" + data);
+            }
+        })
+        
+        appcan.button("#submit", "ani-act", function() {
+            $("form").submit();
+        })
+
+        $("form").on('submit', function() {
+            appcan.request.postForm($("form"), function() {
+                appcan.window.alert({
+                    title : "提醒",
+                    content : "您已经提交了表单:)",
+                    buttons : '确定',
+                    callback : function(err, data, dataType, optId) {
+                        console.log(err, data, dataType, optId);
+                    }
+                });
+            }, function(err) {
+
+            });
+            return false;
+        });
+
+    </script>
+</html>

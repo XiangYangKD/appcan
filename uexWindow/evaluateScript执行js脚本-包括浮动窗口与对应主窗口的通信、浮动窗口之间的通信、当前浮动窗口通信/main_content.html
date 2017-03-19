@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        I am the pop view.
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn1">
+            执行index_content.html浮动窗口的函数
+        </div>
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn2">
+            关闭当前窗口
+        </div>
+        <br />
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn3">
+            在指定的弹出窗内执行响应的脚本
+        </div>
+
+        <div id="id1"></div>
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            //hehe();
+        });
+
+        function show() {
+            $('#id1').html('哇哈哈哈');
+        }
+
+
+        appcan.button("#btn1", "ani-act", function() {
+            appcan.window.publish('close_main', '');
+            // 在指定的浮动窗口执行的方法
+            appcan.frame.evaluateScript({
+                name : 'root',
+                popName : 'content',
+                scriptContent : "mm();"
+            });
+        });
+        appcan.button("#btn2", "ani-act", function() {
+            // 在指定的主窗口中执行的方法
+            appcan.window.evaluateScript({
+                name : 'main',
+                //scriptContent : "appcan.window.close(-1)",
+                scriptContent : 'show_main();',
+            });
+        })
+        appcan.button("#btn3", "ani-act", function() {
+            // 在指定的弹出窗内执行相应的脚本，这个是针对同时打开多个浮动窗口的
+            appcan.window.evaluatePopoverScript({
+                name : 'root',
+                popName : 'content',
+                scriptContent : 'alert("咩咩咩咩咩咩咩咩咩咩咩咩")',
+            });
+        });
+    </script>
+</html>

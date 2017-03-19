@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div id="vibrate" class="btn ub ub-ac ub-pc bc-head bc-text-head">
+            使设备震动10秒
+        </div>
+        <br />
+        <div id="cancelVibrate" class="btn bc-head bc-text-head ub ub-ac ub-pc">
+            停止设备震动
+        </div>
+        <br />
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+            alert(data);
+            //获取手机WIFI信息
+            appcan.device.getInfo(5, function(err, data, dataType, optId) {
+                if (err) {
+                    alert('get device error');
+                    return;
+                }
+            });
+        })
+        // 开始震动
+        appcan.button("#vibrate", "ani-act", function() {
+            appcan.device.vibrate(10000);
+        })
+        // 停止震动
+        appcan.button('#cancelVibrate', 'ani-act', function() {
+            appcan.device.cancelVibrate();
+        })
+    </script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <style>
+            
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <h3>um-vp：ui mobile viewport，这是自定义的body初始化样式，看源码得知默认的内边距和外边距都是为0，超出body的x轴部分自动隐藏，等等。</h3>
+        <br />
+        <h3>up:ui page表示页面样式。一般和um-vp搭配使用，用于定义页面大小自适应屏幕大小</h3>
+        <br />
+        <pre class="bc-head">
+            <body class='um-vp'><div class='up'></div></body>
+        </pre>
+        <br />
+        <h3>跟头部和底部有关的样式</h3>
+        <h5>uh:ui head，uf：ui footer，定义头部和底部的一些属性</h5>
+        <h3>头部和底部文本区域的样式</h3>
+        <h5>ut:ui title，定义头部内边距和外边距的大小</h5>
+        <pre class="bc-head">
+            <h1 class='ut ulev0 ut-s tx-c' tabindex='0'>hhh</h1>
+        </pre>
+        <h5>其中：ut-s表示文本超过部分隐藏；tx-c：文本居中；ulev0：字体大小为1em</h5>
+        <h3>uf[类型]：浮动</h3>
+        <div class="btn ufl ub ub-ac ub-pc bc-head bc-text-head" style="width: 100px;">左浮动</div>
+        <br />
+        <div class="btn my_box_color_blue" style="width: 100px;">未浮动</div>
+        <div class="btn ufr ub ub-ac ub-pc bc-head bc-text-head" style="width: 100px;">右浮动</div>
+        <br />
+        <div class="btn my_box_color_blue" style="width: 100px;">未浮动2</div>
+        <br />
+        <br />
+        <br />
+        <h3>ulev[类型]：字体大小</h3>
+        <p class="ulev0">ulev0</p>
+        <p class="ulev1">ulev1</p>
+        <p class="ulev-1">ulev-1</p>
+        <p class="ulev-3">ulev-3</p>
+        <h3>ulim：限制宽度，表示超过部分隐藏，默认是5em为最大宽度</h3>
+        <p class="ulim">我已经被限制长度了，哈哈哈哈</p>
+        <h3>uinl：单行类别，用于定义元素为行内元素，也可以说是自适应</h3>
+        <div class="btn ub ub-ac ub-pc bc-head bc-text-head">未使用单行元素</div>
+        <br />
+        <div class="btn uc-a bc-head bc-text-head uinl">使用单行元素</div>
+        <div class='btn uba b-bla uinn2 uinl c-blu c-m1 uc-a t-wh' style="padding-top: 1em;">确定</div>
+        <h3>umw：最小宽度，注意要结合单行元素</h3>
+        <div class="btn bc-head bc-text-head umw1 uinl">1</div>
+        <div class="btn bc-head bc-text-head umw3 uinl">3</div>
+        <h3>tx-[类型]：文字对其方式</h3>
+        <div class="btn bc-head bc-text-head ub ub-ac tx-l">左对齐</div>
+        <div class="btn my_box_color_blue bc-text-head ub ub-ac tx-r">右对齐</div>
+        <h3>ut-s：超出部分隐藏不换行</h3>
+        <p class="ut-s">我是是不是你最疼爱的人我是是不是你最疼爱的人我是是不是你最疼爱的人我是是不是你最疼爱的人</p>
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+        });
+
+    </script>
+</html>

@@ -1,0 +1,86 @@
+.accban{
+	background-image:url(myImg/accban.png);
+}
+.uh-acc1{
+	height:8em;
+}
+.uwh-acc1{
+	width:3.0625em;
+	height:3.0625em;
+}
+.b-wh-acc1{
+	border-color:rgba(159,159,159,0.56);
+}
+.b-gra-acc2{
+	border-color:rgba(211,207,204,0.5);
+}
+.us-acc1 {
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .5)
+}
+.us-acc2 {
+	-webkit-box-shadow: 0 1px 0 rgba(110, 98, 91, .5);
+	box-shadow: 0 1px 0 rgba(110, 98, 91, .5);
+}
+.accuser{
+	background-image:url(myImg/accuser.png);
+}
+.c-bla-50{
+	background-color:rgba(0,0,0,0.5);
+}
+.uinn-acc1{
+	padding:0.28125em 0 0.21875em 0;  
+}
+.uinn-acc2{
+	padding:0.375em 0 0.1875em 0;  
+}
+.uwh-acc2{
+	width:2.75em;
+	height:2.75em;
+}
+.accIcon1{
+	background-image:url(myImg/accIcon1.png);
+}
+.accIcon2{
+	background-image:url(myImg/accIcon2.png);
+}
+.accIcon3{
+	background-image:url(myImg/accIcon3.png);
+}
+.accIcon4{
+	background-image:url(myImg/accIcon4.png);
+}
+.accIcon5{
+	background-image:url(myImg/accIcon5.png);
+}
+.accIcon6{
+	background-image:url(myImg/accIcon6.png);
+}
+.accIcon7{
+	background-image:url(myImg/accIcon7.png);
+}
+.accIcon8{
+	background-image:url(myImg/accIcon8.png);
+}
+.umar-t-acc1{
+	margin-top:0.5625em;
+}
+.uinn3
+{
+	padding:0.2em;
+}
+.uinn-a1{
+    padding:0.625em;
+}
+.mar-ar1{
+    margin-right:0.625em;
+}
+.ulev-app1{
+    font-size:0.875em;
+}
+.umar-ar3{
+    margin-right:0.5em;
+}
+.umar-at1{
+    margin-top:0.625em;
+}

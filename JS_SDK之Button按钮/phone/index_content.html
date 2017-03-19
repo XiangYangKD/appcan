@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <style type="text/css">
+            .my_btn_pic {
+                background-image: url('css/icons/icon-filter.png') !important;
+            }
+            .my_btn-ani1 {
+                transform: scale(0.95,0.97);
+                -webkit-transform: scale(0.95,0.97);
+                -webkit-transition-duration: 500ms;
+                opacity: 0.7;
+            }
+        </style>
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <h3>依赖于：appcan.js、appcan.control.js、appcan.control.css</h3>
+        <h3 style="color: #FF0000">注意：
+        <br />
+        1.按钮中的图片样式部分存放在font-awesome.min.css中，如：fa、fa-check
+        <br/>
+        2.图片的加载和处理在appcan.icon.css中
+        <br />
+        3.图片的契合度在ui-box.css中，如：ub-img、ub-img1
+        <br />
+        4.按钮按下的动作在有两种其中，ani-act在ui-base.css中，表示缩小300毫秒并变得透明（opacity）一下后复原；btn-act表示只是变一下透明就复原 </h3>
+        <br />
+        5.补充知识点1：opacity表示透明程度，0.0表示完全透明，1.0表示不透明，所以范围在0~1之间
+        <br />
+        6.补充知识点2：transform表示缩小或者放大
+        /*纯文本按钮*/
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uc-a1"  id="btn1">
+            按钮
+        </div>
+        /*带图标按钮*/
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn uc-a1"  id="btn2">
+            <div class="uinn3 fa fa-check umh1 umw1"></div>
+            导航
+        </div>
+        /*带图标的按钮*/
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn">
+            图片按钮
+            <div class="uinn3 icon-map ub-img umh1 umw1"></div>
+        </div>
+        /*自定义图标按钮*/
+        <div class="btn ub ub-ac ub-pc bc-text-head bc-btn">
+            <div class="uinn1 my_btn_pic ub-img umh1 umw1" style="padding-top: 1em;"></div>
+            &nbsp; 按钮
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+        })
+        /*
+         *  说明：
+         *      1.第一个参数表示按钮的选择器，id或者class等；
+         *      2.第二个参数表示按钮被按下的时候的效果,通过css定义
+         *      3.第三个是回调函数
+         */
+        appcan.button(".btn", "my_btn-ani1", function() {
+            /*添加按钮点击处理代码*/
+            //alert('按钮被点击啦！');
+        })
+    </script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn">
+            对象转为字符串
+        </div>
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn1">
+            json转对象
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+        })
+
+        appcan.button("#btn", "ani-act", function() {
+            var jsObj = {};
+            jsObj.testArray = [1, 2, 3, 4, 5];
+            jsObj.name = 'CSS3';
+            jsObj.date = '8 May, 2011';
+            var str = JSON.stringify(jsObj);
+            alert(str);
+        })
+        appcan.button("#btn1", "ani-act", function() {
+            var jsObj = {};
+            jsObj.testArray = [1, 2, 3, 4, 5];
+            jsObj.name = 'CSS3';
+            jsObj.date = '8 May, 2011';
+            var str = JSON.stringify(jsObj);
+            var str1 = JSON.parse(str);
+            alert(str1);
+        })
+    </script>
+</html>

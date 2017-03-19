@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <br />
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn">
+            打开一个弹出框，如果存在则打开，否则就创建-真机上测试
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        var w = 0;
+        var h = 0;
+        
+        appcan.ready(function() {
+            appcan.initBounce();
+
+            // 获取窗口传递过来的数据
+            uexWindow.getUrlQuery();
+
+            // 回调函数
+            uexWindow.cbGetUrlQuery = cbGetUrlQuerys;
+        });
+
+        // id：操作ID，此方法中不起作用
+        // dataType：数据类型，0表示text，1表示接送，2表示int型
+        // data：数据
+        function cbGetUrlQuerys(opId, dataType, data) {
+            // 先转换为string类型
+            var str = JSON.stringify(data);
+            
+            //接送数据泪ing
+            var json = JSON.parse(str);
+            
+            w = json.width;
+            
+            h = json.height;
+            
+            alert(data);
+            alert(w + "," + h);
+        }
+
+
+        appcan.button(".btn", "ani-act", function() {
+            // 名称
+            appcan.window.openPopover({
+                name : 'main_content',
+                dataType : 0,
+                url : "main_content.html",
+                top : 100,
+                left : 100,
+                width : 100,
+                height : 100,
+                bottomMargin : 0,
+                extraInfo : {
+                    "width" : w,
+                    "height" : h,
+                }
+            });
+        });
+
+    </script>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div>
+            <h3> 简单的流式布局：</h3>
+        </div>
+        <div style="display:inline;border:1px solid blue;">
+            <div style="display:inline;background:#FF0000;">
+                aaaa
+            </div>
+            <div style="display:inline;background:#00FF00;">
+                bbbb
+            </div>
+        </div>
+        <div>
+            <h3> 使用弹性盒子实现流式布局：</h3>
+            1.使用display:-webkit-box;表示使用BOX方式布局子元素
+            <br />
+            2.-webkit-box-flex:1;指定了这个div为弹性，占一份空间
+            <br />
+            3.未使用-webkit-box-flex:1;表示内容自动撑开，即自适应，其它空间，按照比例分配
+            <br />
+            结果：按道理aaaa和bbbb的空间比例为1：2，其实这只能是没有内容的时候符合，有内容会把空间撑开，所以比例并不是1：2
+            <br />
+        </div>
+        <div style='display:-webkit-box;-webkit-box-direction:reverse;width:210px;border:1px solid blue'>
+            <div style='-webkit-box-flex:1;background:#E00'>
+                aaaa
+            </div>
+            <div style='-webkit-box-flex:2;background:#0EE'>
+                bbbb
+            </div>
+            <div style='background:#0E0'>
+                cccc
+            </div>
+        </div>
+        <h3> 通过绝对定位固定盒子元素比例：</h3>
+        <div style='display:-webkit-box;width:200px;border:1px solid blue'>
+            <div style='-webkit-box-flex:1;background:#E00;position:relative'>
+                <div style='position:absolute;width:100%;height:100%;'>
+                    aaaa
+                </div>
+            </div>
+            <div style='-webkit-box-flex:2;background:#0EE;position:relative'>
+                <div style='position:absolute;width:100%;height:100%;'>
+                    bbbb
+                </div>
+            </div>
+            <div style='background:#0E0'>
+                cccc
+            </div>
+        </div>
+        <h3> 通过绝对定位固定盒子纵向元素比例：</h3>
+        <div style="display:-webkit-box;-webkit-box-orient:vertical;height:210px;background:#CCC;">
+            <div style="-webkit-box-flex:1;background:#FF0000; position: relative;">
+                <div style="position: absolute;width:100%;height:100%;">aaa</div>
+            </div>
+            <div style="-webkit-box-flex:2;background:#00FF00; position: relative;">
+                <div style="position: absolute;width:100%;height:100%;">bbb</div>
+            </div>
+            <div style="background:#CCC">ccc</div>
+        </div>
+        
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+        })
+
+        appcan.button(".btn", "ani-act", function() {
+
+        })
+    </script>
+</html>

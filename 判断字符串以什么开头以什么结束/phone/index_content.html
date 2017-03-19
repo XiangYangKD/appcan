@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <br>
+        <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btn1">
+            string以ing结束？
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+                appcan.ready(function() {
+        appcan.initBounce();
+        });
+
+        /**
+         *判断str1字符串是否以str2为结束
+         *@param str1 原字符串
+         *@param str2 子串
+         *@author pansen
+         *@return 是-true,否-false
+         */
+        function endWith(str1, str2){
+        if(str1 == null || str2 == null){
+                return false;
+            }
+            if(str1.length < str2.length){
+                return false;
+            }else if(str1 == str2){
+                return true;
+            }else if(str1.substring(str1.length - str2.length) == str2){
+                return true;
+            }
+            return false;
+        }
+
+        /**
+        *判断str1字符串是否以str2为开头
+        *@param str1 原字符串
+        *@param str2 子串
+        *@author pansen
+        *@return 是-true,否-false
+        */
+        function startWith(str1, str2){
+            if(str1 == null || str2 == null){
+                return false;
+            }
+            if(str1.length < str2.length){
+                return false;
+            }else if(str1 == str2){
+                return true;
+            }else if(str1.substr(0, str2.length) == str2){
+                return true;
+            }
+        }
+        
+        /**
+         *截取字符串的最后四位 
+         */
+        function subStr(str){
+            
+        }
+
+        appcan.button("#btn1", "ani-act", function() {
+            var str = 'twetrhgbgbfdg98534tf';
+            alert(str.substr(str.length-4));
+            // alert(endWith("string", "ng"));
+        });
+    </script>
+</html>
